@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export KAFDROP_PORT=9000
+export KAFKA_PORT=9092
+export KSQLDB_PORT=8088
+export ZOOKEEPER_PORT=2181

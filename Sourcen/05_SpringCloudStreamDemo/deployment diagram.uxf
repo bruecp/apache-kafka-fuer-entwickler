@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>390</y>
+      <w>580</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-
+*send message to topic*</panel_attributes>
+    <additional_attributes>560.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1290</x>
+      <y>600</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=3
+symbol=component
+Kafka Binder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>840</x>
+      <y>310</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>group=4
+&lt;&lt;producer&gt;&gt;
+NewsletterProducer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1520</x>
+      <y>250</y>
+      <w>270</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>group=2
+&lt;&lt;system&gt;&gt;
+Kafka</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>390</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=4
+symbol=component
+Kafka Binder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>470</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=4
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>40</x>
+      <y>30</y>
+      <w>700</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>group=4
+bg=#E6FFE6
+server:
+  port: 8080
+
+spring:
+  application:
+    name: newsletterproducer
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-add-partitions: true
+          transaction:
+            transaction-id-prefix: tx-
+          required-acks: all
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      bindings:
+        outputReaders:
+          destination: newsletter.readers
+          content-type: application/json
+          producer:
+            partition-count: 3
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>490</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=4
+lt=.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1520</x>
+      <y>70</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>group=2
+&lt;&lt;system&gt;&gt;
+Zookeeper</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1630</x>
+      <y>120</y>
+      <w>50</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>group=2
+lt=[2181]-
+</panel_attributes>
+    <additional_attributes>20.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1410</x>
+      <y>100</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=2</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1200</x>
+      <y>60</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>group=2
+customelement=
+// Text Elemnt
+// DB Symbol
+drawArc(0,0,width,height*2/5,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(0,0,width,height*2/5,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(0,(height+0.5)/5,width,(height)*3/5-1) fg=#929292 bg=#222222 //Parameters (x, y, width, height)
+drawLine(0,height/5,0,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(width,height/5,width,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(0,height*3/5,width,height*2/5,180,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1640</x>
+      <y>150</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>840</x>
+      <y>640</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>group=4
+&lt;&lt;system&gt;&gt;
+Derby</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>720</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=4
+symbol=artifact
+db_newsletter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>860</x>
+      <y>880</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>group=4
+customelement=
+// Text Elemnt
+// DB Symbol
+drawArc(0,0,width,height*2/5,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(0,0,width,height*2/5,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(0,(height+0.5)/5,width,(height)*3/5-1) fg=#929292 bg=#222222 //Parameters (x, y, width, height)
+drawLine(0,height/5,0,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(width,height/5,width,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(0,height*3/5,width,height*2/5,180,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>790</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>group=4</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>720</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>group=4
+lt=&lt;.
+&lt;&lt;stores&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;30.0;130.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>540</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>group=4</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>680</y>
+      <w>140</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>group=4
+Reader
+--
+-id: Long
+-name: String
+-email: String
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1540</x>
+      <y>320</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=2
+&lt;&lt;topic&gt;&gt;
+newsletter.readers</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1220</x>
+      <y>860</y>
+      <w>360</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>group=3
+bg=#E6FFE6
+spring:
+  application:
+    name: newsletterconsumer1
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        input:
+          destination: newsletter.readers
+          group: newsletter.readers.group1
+          consumer:
+            concurrency: 3
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1290</x>
+      <y>680</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=3
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1390</x>
+      <y>730</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>group=3
+lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1270</x>
+      <y>520</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>group=3
+&lt;&lt;consumer&gt;&gt;
+NewsletterConsumer1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1790</x>
+      <y>600</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=1
+symbol=component
+Kafka Binder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1720</x>
+      <y>860</y>
+      <w>360</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>group=1
+bg=#E6FFE6
+spring:
+  application:
+    name: newsletterconsumer2
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        handleReaderEvent-in-0:
+          destination: newsletter.readers
+          content-type: text/plain
+          group: newsletter.readers.group2
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1790</x>
+      <y>680</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>group=1
+&lt;&lt;config file&gt;&gt;
+application.yml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1890</x>
+      <y>730</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>group=1
+lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>1770</x>
+      <y>520</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>group=1
+&lt;&lt;consumer&gt;&gt;
+NewsletterConsumer2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1750</x>
+      <y>320</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>group=2
+lt=&lt;.
+&lt;&lt;stores&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1410</x>
+      <y>320</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=2</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1200</x>
+      <y>280</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>group=2
+customelement=
+// Text Elemnt
+// DB Symbol
+drawArc(0,0,width,height*2/5,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(0,0,width,height*2/5,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(0,(height+0.5)/5,width,(height)*3/5-1) fg=#929292 bg=#222222 //Parameters (x, y, width, height)
+drawLine(0,height/5,0,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(width,height/5,width,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(0,height*3/5,width,height*2/5,180,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>410</y>
+      <w>270</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-&gt;&gt;&gt;
+*subscribe to topic*
+              &amp;
+* receive message*</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1640</x>
+      <y>410</y>
+      <w>170</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>940</x>
+      <y>100</y>
+      <w>60</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>User</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>190</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>fg=#FF0000
+lt=&lt;&lt;&lt;-
+*post form data*</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1930</x>
+      <y>90</y>
+      <w>120</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>group=2
+bg=#F5F5F5
+&lt;&lt;enum&gt;&gt;
+EventType
+--
+CREATED
+DELETED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1880</x>
+      <y>290</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>group=2
+ReaderEvent
+--
+-eventType: EventType
+-reader: Reader
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>300</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=4
+lt=[8080]-</panel_attributes>
+    <additional_attributes>20.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1630</x>
+      <y>400</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=2
+lt=[9092]-</panel_attributes>
+    <additional_attributes>20.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+</diagram>
