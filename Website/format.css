@@ -1,0 +1,66 @@
+* {
+	font-family: Tahoma, sans-serif;
+	font-size: 1rem;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	word-spacing: 0.2rem;
+}
+
+a {
+	color: steelblue;
+}
+
+a:not(.additional):hover {
+	background-color: yellow;
+	text-decoration: underline;
+}
+
+body {
+	padding: 1rem;
+}
+
+h1 {
+	color: steelblue;
+	font-size: 2.5rem;
+}
+
+h2 {
+	background-color: steelblue;
+	color: white;
+	font-size: 1.5rem;
+	margin: 2rem 0 1rem 0;
+	padding: 0.25rem;
+	text-align: center;
+}
+
+header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+img {
+	height: 5rem;
+	width: 5rem;
+}
+
+li {
+	margin-bottom: 0.5rem;
+}
+
+ul {
+	list-style-type: circle;
+	margin-left: 2rem;
+}
+
+#tools {
+	text-align: center;
+}
+
+.additional img {
+	height: 1rem;
+	vertical-align: middle;
+	width: 1rem;
+}
